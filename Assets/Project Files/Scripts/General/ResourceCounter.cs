@@ -17,4 +17,13 @@ public class ResourceCounter : MonoBehaviour
         _count++;
         Changed?.Invoke(_count);
     }
+
+    public void Spend()
+    {
+        if (_count <= 0)
+            return;
+
+        _count--;
+        Changed?.Invoke(_count);
+    }
 }
