@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    [SerializeField] private ResourceDispatcher _resourceDispatcher;
     [SerializeField] private CollectorZone _collectorZone;
     [SerializeField] private ResourceCounter _resourceCounter;
+
     [SerializeField] private BotSpawner _botSpawner;
+
     [SerializeField] private Transform _dropResourcePoint;
+
     [SerializeField] private int _initialBotCount = 3;
     [SerializeField] private float _assignInterval = 0.5f;
 
+    private ResourceDispatcher _resourceDispatcher;
+
     private List<Bot> _bots = new();
+    private List<Resource> _collectedResources = new();
 
     private void Start()
     {
@@ -29,6 +34,11 @@ public class Base : MonoBehaviour
     private void OnDisable()
     {
         _collectorZone.BotEntered -= OnTaskBotCompleted;
+    }
+
+    public void Initialize(ResourceDispatcher resourceDispatcher)
+    {
+        _resourceDispatcher = resourceDispatcher;
     }
 
     private IEnumerator AssignTaskBotRoutine()
@@ -55,8 +65,13 @@ public class Base : MonoBehaviour
     private void OnTaskBotCompleted(Bot bot, Resource resource)
     {
         _resourceDispatcher.RemoveResource(resource);
-        _resourceCounter.Add();
         bot.GiveResource(_dropResourcePoint.position);
+
+        _resourceCounter.Add();
+        _collectedResources.Add(resource);
+
         resource.Release();
+
+        Debug.Log(_collectedResources.Count);
     }
 }
