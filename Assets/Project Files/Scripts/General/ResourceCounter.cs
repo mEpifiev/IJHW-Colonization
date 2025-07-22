@@ -15,15 +15,17 @@ public class ResourceCounter : MonoBehaviour
     public void Add()
     {
         _count++;
+
         Changed?.Invoke(_count);
     }
 
-    public void Spend()
+    public void Spend(int amount)
     {
-        if (_count <= 0)
+        if (amount > _count)
             return;
 
-        _count--;
+        _count -= amount;
+
         Changed?.Invoke(_count);
     }
 }
