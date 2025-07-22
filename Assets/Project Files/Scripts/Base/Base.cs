@@ -17,7 +17,6 @@ public class Base : MonoBehaviour
     private ResourceDispatcher _resourceDispatcher;
 
     private List<Bot> _bots = new();
-    private List<Resource> _collectedResources = new();
 
     private void Start()
     {
@@ -68,10 +67,7 @@ public class Base : MonoBehaviour
         bot.GiveResource(_dropResourcePoint.position);
 
         _resourceCounter.Add();
-        _collectedResources.Add(resource);
 
         resource.Release();
-
-        Debug.Log(_collectedResources.Count);
     }
 }
