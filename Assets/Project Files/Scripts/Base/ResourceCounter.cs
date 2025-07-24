@@ -3,29 +3,29 @@ using UnityEngine;
 
 public class ResourceCounter : MonoBehaviour
 {
-    private int _count = 0;
-
     public event Action<int> Changed;
+
+    public int Count { get; private set; } = 0;
 
     private void Awake()
     {
-        Changed?.Invoke(_count);
+        Changed?.Invoke(Count);
     }
 
     public void Add()
     {
-        _count++;
+        Count++;
 
-        Changed?.Invoke(_count);
+        Changed?.Invoke(Count);
     }
 
     public void Spend(int amount)
     {
-        if (amount > _count)
+        if (amount > Count)
             return;
 
-        _count -= amount;
+        Count -= amount;
 
-        Changed?.Invoke(_count);
+        Changed?.Invoke(Count);
     }
 }

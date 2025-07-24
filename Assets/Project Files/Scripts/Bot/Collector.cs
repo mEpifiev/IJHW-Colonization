@@ -28,6 +28,7 @@ public class Collector : MonoBehaviour
         Resource resource = CurrentResource;
 
         CurrentResource.transform.position = newPosition;
+        CurrentResource.transform.rotation = new Quaternion(0, 0, 0, 0);
         CurrentResource.transform.SetParent(null);
         CurrentResource = null;
 

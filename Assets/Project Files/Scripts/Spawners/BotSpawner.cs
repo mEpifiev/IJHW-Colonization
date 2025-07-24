@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BotSpawner : MonoBehaviour
@@ -6,23 +5,15 @@ public class BotSpawner : MonoBehaviour
     private const float SpawnOffset = 2;
 
     [SerializeField] private BotPool _botPool;
-    [SerializeField] private SpawnPoint _spawnPoint;
 
-    public List<Bot> Spawn(int count)
+    public Bot Spawn(SpawnPoint spawnPoint)
     {
-        List<Bot> bots = new();
+        Bot bot = _botPool.Get();
 
-        for (int i = 0; i < count; i++)
-        {
-            Bot bot = _botPool.Get();
+        Vector3 randomOffset = new Vector3(Random.Range(-SpawnOffset, SpawnOffset), 0, Random.Range(-SpawnOffset, SpawnOffset));
 
-            Vector3 randomOffset = new Vector3(Random.Range(-SpawnOffset, SpawnOffset), 0, Random.Range(-SpawnOffset, SpawnOffset)
-        );
+        bot.transform.position = spawnPoint.transform.position + randomOffset;
 
-            bot.transform.position = _spawnPoint.transform.position + randomOffset;
-            bots.Add(bot);
-        }
-
-        return bots;
+        return bot;
     }
 }
