@@ -12,7 +12,8 @@ public class Base : MonoBehaviour
 
     [SerializeField] private int _initialBotCount = 1;
     [SerializeField] private int _minBotsToBuildNewBase = 1;
-    [SerializeField] private float _taskDelay = 0.5f;
+    [SerializeField] private float _collectResourceDelay = 0.5f;
+    [SerializeField] private float _buildNewBaseDelay = 0.1f;
 
     [SerializeField] private int _resourcesToNewBot = 3;
     [SerializeField] private int _resourcesToNewBase = 5;
@@ -34,7 +35,7 @@ public class Base : MonoBehaviour
         for (int i = 0; i < _initialBotCount; i++)
             SpawnBot();
 
-        StartCoroutine(AssignTaskBotRoutine());
+        StartCoroutine(AssignTaskBotCollectResourceRoutine());
     }
 
     private void OnEnable()
@@ -106,9 +107,9 @@ public class Base : MonoBehaviour
         newBase.ReceiveBot(bot);
     }
 
-    private IEnumerator AssignTaskBotRoutine()
+    private IEnumerator AssignTaskBotCollectResourceRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(_taskDelay);
+        WaitForSeconds wait = new WaitForSeconds(_collectResourceDelay);
 
         while(enabled)
         {
@@ -129,7 +130,7 @@ public class Base : MonoBehaviour
 
     private IEnumerator AssignTaskBuildNewBaseRoutine()
     {
-        WaitForSeconds wait = new WaitForSeconds(_taskDelay);
+        WaitForSeconds wait = new WaitForSeconds(_buildNewBaseDelay);
 
         while (IsFlagBuilded)
         {
