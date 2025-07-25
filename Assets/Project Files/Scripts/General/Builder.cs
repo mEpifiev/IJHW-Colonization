@@ -57,8 +57,7 @@ public class Builder : MonoBehaviour
 
         if (_selectedBase.FlagController.TryGetFlag(out Flag flag) == false)
         {
-            flag = Instantiate(_flagPrefab, targetPosition, Quaternion.identity);
-            flag.transform.SetParent(_selectedBase.transform);
+            flag = Instantiate(_flagPrefab, targetPosition, Quaternion.identity);    
             _selectedBase.FlagController.SetFlag(flag);
         }
         else
