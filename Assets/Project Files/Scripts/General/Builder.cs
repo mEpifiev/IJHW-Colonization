@@ -7,7 +7,6 @@ public class Builder : MonoBehaviour
     [SerializeField] private LayerMask _obstacleMask;
     [SerializeField] private float _minBuildDistance = 5f;
 
-
     private Camera _camera;
     private Base _selectedBase;
 
