@@ -26,6 +26,7 @@ public class FlagController : MonoBehaviour
 
         _currentFlag = flag;
         IsFlagBuilded = true;
+        flag.transform.SetParent(transform);
     }
 
     public void ClearFlag()
