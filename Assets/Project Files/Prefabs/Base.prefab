@@ -563,6 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4691796684372044045}
   - component: {fileID: 2743373711180730474}
+  - component: {fileID: 3978747229506676755}
   - component: {fileID: 5821509062079982896}
   - component: {fileID: 4613732132827110724}
   m_Layer: 7
@@ -605,15 +606,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectorZone: {fileID: 5052489757422498176}
   _resourceCounter: {fileID: 6208617672430884131}
+  _flagController: {fileID: 3978747229506676755}
   _dropResourcePoint: {fileID: 6506662445674165301}
   _botSpawnPoint: {fileID: 8904129671815695017}
   _initialBotCount: 1
   _minBotsToBuildNewBase: 1
-  _collectResourceDelay: 0.5
-  _buildNewBaseDelay: 0.1
+  _taskDelay: 0.5
   _resourcesToNewBot: 3
   _resourcesToNewBase: 5
-  _isFlagBuilded: 0
+--- !u!114 &3978747229506676755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6143816457813875806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0bc4fec522f0d9409bec467d03aca32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &5821509062079982896
 BoxCollider:
   m_ObjectHideFlags: 0

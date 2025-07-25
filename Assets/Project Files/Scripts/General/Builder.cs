@@ -55,11 +55,11 @@ public class Builder : MonoBehaviour
             return;
         }
 
-        if (_selectedBase.TryGetFlag(out Flag flag) == false)
+        if (_selectedBase.FlagController.TryGetFlag(out Flag flag) == false)
         {
             flag = Instantiate(_flagPrefab, targetPosition, Quaternion.identity);
             flag.transform.SetParent(_selectedBase.transform);
-            _selectedBase.SetFlag(flag);
+            _selectedBase.FlagController.SetFlag(flag);
         }
         else
         {
