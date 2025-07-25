@@ -3,8 +3,10 @@ using UnityEngine;
 public class Builder : MonoBehaviour
 {
     [SerializeField] private InputReader _inputReader;
-
     [SerializeField] private Flag _flagPrefab;
+    [SerializeField] private LayerMask _obstacleMask;
+    [SerializeField] private float _minBuildDistance = 5f;
+
 
     private Camera _camera;
     private Base _selectedBase;
@@ -43,20 +45,25 @@ public class Builder : MonoBehaviour
 
     private void Build(RaycastHit hit)
     {
-        Vector3 targetPosition = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+        Vector3 targetPosition = hit.point;
 
-        if (_selectedBase.IsFlagBuilded == false)
+        Collider[] colliders = Physics.OverlapSphere(targetPosition, _minBuildDistance, _obstacleMask);
+
+        if (colliders.Length > 0)
         {
-            Flag flag = Instantiate(_flagPrefab, targetPosition, Quaternion.identity);
+            _selectedBase = null;
+            return;
+        }
+
+        if (_selectedBase.TryGetFlag(out Flag flag) == false)
+        {
+            flag = Instantiate(_flagPrefab, targetPosition, Quaternion.identity);
             flag.transform.SetParent(_selectedBase.transform);
             _selectedBase.SetFlag(flag);
         }
         else
         {
-            if (_selectedBase.TryGetFlag(out Flag flag))
-            {
-                flag.transform.position = targetPosition;
-            }
+            flag.transform.position = targetPosition;
         }
 
         _selectedBase = null;

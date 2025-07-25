@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6343348841716709228}
   - component: {fileID: 8355934827695804128}
   - component: {fileID: 6583715064618340968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CrystalCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 3455154861221030485}
   - component: {fileID: 1381228073570789715}
   - component: {fileID: 5824847548020802102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CrystalImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 7847683970288467994}
   - component: {fileID: 5052489757422498176}
   - component: {fileID: 7971578914107466647}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollectorZone
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2611651579799613005}
   - component: {fileID: 8904129671815695017}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BotSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 5935554011298552319}
   - component: {fileID: 6208617672430884131}
   - component: {fileID: 8580610816366447791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StatsBaseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 7138310097573099279}
   - component: {fileID: 6955090620495642143}
   - component: {fileID: 3946035284938141239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 2743373711180730474}
   - component: {fileID: 5821509062079982896}
   - component: {fileID: 4613732132827110724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,9 +609,11 @@ MonoBehaviour:
   _botSpawnPoint: {fileID: 8904129671815695017}
   _initialBotCount: 1
   _minBotsToBuildNewBase: 1
-  _taskDelay: 0.5
+  _collectResourceDelay: 0.5
+  _buildNewBaseDelay: 0.1
   _resourcesToNewBot: 3
   _resourcesToNewBase: 5
+  _isFlagBuilded: 0
 --- !u!65 &5821509062079982896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -652,8 +654,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.324326, y: 3.5, z: 4.8200006}
-  m_Center: {x: 0.40543675, y: 2.3000002, z: -7.36}
+  m_Size: {x: 10.324326, y: 4.9578815, z: 5.6104584}
+  m_Center: {x: 0.40543652, y: 1.5710595, z: -7.073468}
 --- !u!1 &9071649321242839113
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +667,7 @@ GameObject:
   - component: {fileID: 208577059708306188}
   - component: {fileID: 5353842058548278908}
   - component: {fileID: 2991170213477818025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BaseModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

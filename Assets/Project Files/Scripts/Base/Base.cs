@@ -27,8 +27,7 @@ public class Base : MonoBehaviour
     private Flag _currentFlag;
 
     private bool _isBuildingNewBase = false;
-
-    public bool IsFlagBuilded { get; private set; } = false;
+    public bool _isFlagBuilded = false;
 
     private void Start()
     {
@@ -73,7 +72,7 @@ public class Base : MonoBehaviour
             return;
 
         _currentFlag = flag;
-        IsFlagBuilded = true;
+        _isFlagBuilded = true;
 
         StartCoroutine(AssignTaskBuildNewBaseRoutine());
     }
@@ -89,7 +88,7 @@ public class Base : MonoBehaviour
         Destroy(_currentFlag.gameObject);
         _currentFlag = null;
 
-        IsFlagBuilded = false;
+        _isFlagBuilded = false;
         _isBuildingNewBase = false;
     }
 
@@ -132,7 +131,7 @@ public class Base : MonoBehaviour
     {
         WaitForSeconds wait = new WaitForSeconds(_buildNewBaseDelay);
 
-        while (IsFlagBuilded)
+        while (_isFlagBuilded)
         {
             if (_bots.Count > _minBotsToBuildNewBase && _resourceCounter.Count >= _resourcesToNewBase && _isBuildingNewBase == false)
             {
@@ -169,7 +168,7 @@ public class Base : MonoBehaviour
 
         _resourceCounter.Add();
 
-        if (_resourceCounter.Count >= _resourcesToNewBot && (IsFlagBuilded == false || _bots.Count <= _minBotsToBuildNewBase))
+        if (_resourceCounter.Count >= _resourcesToNewBot && (_isFlagBuilded == false || _bots.Count <= _minBotsToBuildNewBase))
         {
             _resourceCounter.Spend(_resourcesToNewBot);
             SpawnBot();

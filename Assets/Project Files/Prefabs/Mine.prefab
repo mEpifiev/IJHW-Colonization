@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4551593372664211140}
   - component: {fileID: 9127959351894352043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133642098679091259}
   - component: {fileID: 4166785650004887915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ResourceSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6847427387594637165}
   - component: {fileID: 4193073852513638907}
   - component: {fileID: 1221836240371675250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MineModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,5 +198,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.1707187, y: 10.7777, z: 6.0482087}
-  m_Center: {x: 0, y: 5.38885, z: 0}
+  m_Size: {x: 4.1707187, y: 10.7777, z: 4.6621737}
+  m_Center: {x: 0, y: 5.38885, z: 0.100676775}
